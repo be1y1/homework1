@@ -193,13 +193,13 @@ void CChildView::DrawBackground(CDC& dc)
     m_bitmap.GetBitmap(&bm);
     CBitmap* pOld = memDC.SelectObject(&m_bitmap);
 
-    CRect rc;
-    GetClientRect(&rc);
-
-    dc.StretchBlt(
-        0, 0, rc.Width(), rc.Height(),
+    // ★ 사진을 항상 (0, 0)에 원본 크기로 그리기
+    dc.BitBlt(
+        0, 0,               // 화면에서 그릴 시작 위치 (왼쪽 위 고정)
+        bm.bmWidth,         // 그림 가로 크기
+        bm.bmHeight,        // 그림 세로 크기
         &memDC,
-        0, 0, bm.bmWidth, bm.bmHeight,
+        0, 0,               // 비트맵에서 복사 시작 위치
         SRCCOPY
     );
 

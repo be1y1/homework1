@@ -49,7 +49,7 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
         reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1),
         nullptr);
 
-    return TRUE;
+    return TRUE; 
 }
 
 // 비트맵 로드
